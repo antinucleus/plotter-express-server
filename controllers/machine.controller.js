@@ -6,14 +6,32 @@ const getStatus = async (req, res, next) => {
   res.send(status);
 };
 
+const updateStatus = async (req, res, next) => {
+  const update = req.body;
+  Object.assign(status, update);
+
+  res.send(status);
+};
+
 const movePen = async (req, res, next) => {
-  const { penDirection } = req.body;
+  const { penPosition } = req.body;
 
-  console.log("Pen Direction @movePen:", penDirection);
+  console.log("Pen Position @movePen:", penPosition);
 
-  status.penDirection = penDirection;
+  status.penPosition = penPosition;
 
-  res.send(`Pen moved ${penDirection}`);
+  res.send(`Pen moved ${penPosition}`);
+};
+
+const moveAxis = async (req, res, next) => {
+  const motion = req.body;
+
+  Object.assign(status, motion);
+
+  console.log("Move Axis @moveAxis:", motion);
+  console.log("Move Axis @moveAxis: status::", status);
+
+  res.send(`Moved axis: ${status}`);
 };
 
 const sendCoordinates = async (req, res, next) => {
@@ -24,4 +42,10 @@ const sendCoordinates = async (req, res, next) => {
   res.send("success");
 };
 
-module.exports = { movePen, sendCoordinates, getStatus };
+module.exports = {
+  movePen,
+  sendCoordinates,
+  getStatus,
+  moveAxis,
+  updateStatus,
+};
