@@ -1,4 +1,4 @@
-const status = {
+const initialState = {
   autoHoming: "no", // yes, no
   startPlotting: "no", // yes, no
   manualControl: "no", // yes, no
@@ -12,4 +12,12 @@ const status = {
   driveMode: "FullStep", // FullStep, HalfStep, QuarterStep, EighthStep, SixteenthStep
 };
 
-module.exports = status;
+const status = {
+  ...initialState,
+};
+
+const getStatus = () => status;
+const updateStatus = (newValue) => Object.assign(status, newValue);
+const resetStatus = () => Object.assign(status, initialState);
+
+module.exports = { getStatus, updateStatus, resetStatus };

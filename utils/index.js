@@ -1,13 +1,22 @@
-const status = require("./status");
-const { updateDeviceState, getDeviceState } = require("./deviceState");
+const { getStatus, updateStatus, resetStatus } = require("./status");
+const {
+  updateDeviceState,
+  getDeviceState,
+  resetDeviceState,
+} = require("./deviceState");
 const {
   getMachinePosition,
   updateMachinePosition,
+  resetMachinePosition,
 } = require("./machinePosition");
 module.exports = {
-  status,
-  updateDeviceState,
+  getStatus,
+  updateStatus,
+  resetStatus,
   getDeviceState,
+  updateDeviceState,
+  resetDeviceState,
   getMachinePosition,
   updateMachinePosition,
+  resetMachinePosition,
 };

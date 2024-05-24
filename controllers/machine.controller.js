@@ -1,20 +1,24 @@
 const {
-  status,
+  getStatus,
+  updateStatus,
   getMachinePosition,
   updateMachinePosition,
+  resetStatus,
+  resetDeviceState,
+  resetMachinePosition,
 } = require("../utils");
 
-const getStatus = async (req, res, next) => {
-  console.log("Sending Status @sendStauts:", status);
+const getMachineStatus = async (req, res, next) => {
+  console.log("Sending Status @sendStauts:", getStatus());
 
-  res.send(status);
+  res.send(getStatus());
 };
 
-const updateStatus = async (req, res, next) => {
+const updateMachineStatus = async (req, res, next) => {
   const update = req.body;
-  Object.assign(status, update);
+  updateStatus(update);
 
-  res.send(status);
+  res.send(getStatus());
 };
 
 const movePen = async (req, res, next) => {
@@ -22,8 +26,7 @@ const movePen = async (req, res, next) => {
 
   console.log("Pen Position @movePen:", penPosition);
 
-  status.penPosition = penPosition;
-  status.isMovingPen = "yes";
+  updateStatus({ penPosition, isMovingPen: "yes" });
 
   res.send(`Pen moved ${penPosition}`);
 };
@@ -31,9 +34,9 @@ const movePen = async (req, res, next) => {
 const moveAxis = async (req, res, next) => {
   const motion = req.body;
 
-  Object.assign(status, motion);
+  updateStatus(motion);
 
-  res.send(`Moved axis: ${status}`);
+  res.send(`Moved axis: ${getStatus()}`);
 };
 
 const updateCoordinates = async (req, res, next) => {
@@ -51,11 +54,20 @@ const getCoordinates = async (req, res, next) => {
   res.send(getMachinePosition());
 };
 
+const resetAllValues = (req, res, next) => {
+  resetStatus();
+  resetDeviceState();
+  resetMachinePosition();
+
+  res.send("success");
+};
+
 module.exports = {
   movePen,
   getCoordinates,
   updateCoordinates,
-  getStatus,
-  updateStatus,
+  getMachineStatus,
+  updateMachineStatus,
   moveAxis,
+  resetAllValues,
 };

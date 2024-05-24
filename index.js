@@ -18,11 +18,6 @@ app.get("/", (req, res) => {
   res.send("Plotter Controller API v0.1\n");
 });
 
-// app.post("/start", (req, res) => {
-//   status.started = 1;
-//   res.send("Machine started");
-// });
-
 app.listen(PORT, () => {
   console.log(`Server is started @localhost:${PORT}`);
 });
