@@ -3,6 +3,7 @@ const status = {
   startPlotting: "no", // yes, no
   manualControl: "no", // yes, no
   penPosition: "down", // up, down
+  isMovingPen: "no", // yes, no
   isMovingX: "no", // yes, no
   isMovingY: "no", // yes, no
   targetDistanceX: 0,

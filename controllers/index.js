@@ -2,16 +2,18 @@ const { checkDevice } = require("./checkDevice.controller");
 const {
   movePen,
   getStatus,
-  sendCoordinates,
-  moveAxis,
   updateStatus,
+  getCoordinates,
+  updateCoordinates,
+  moveAxis,
 } = require("./machine.controller");
 
 module.exports = {
   checkDevice,
   movePen,
   getStatus,
-  sendCoordinates,
-  moveAxis,
   updateStatus,
+  getCoordinates,
+  updateCoordinates,
+  moveAxis,
 };
