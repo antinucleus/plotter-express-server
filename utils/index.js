@@ -1,7 +1,7 @@
 const { getStatus, updateStatus, resetStatus } = require("./status");
 const {
-  updateDeviceState,
   getDeviceState,
+  updateDeviceState,
   resetDeviceState,
 } = require("./deviceState");
 const {
@@ -9,6 +9,12 @@ const {
   updateMachinePosition,
   resetMachinePosition,
 } = require("./machinePosition");
+const {
+  getGcodeConfig,
+  updateGcodeConfig,
+  resetGcodeConfig,
+} = require("./gcodeConfig");
+
 module.exports = {
   getStatus,
   updateStatus,
@@ -19,4 +25,7 @@ module.exports = {
   getMachinePosition,
   updateMachinePosition,
   resetMachinePosition,
+  getGcodeConfig,
+  updateGcodeConfig,
+  resetGcodeConfig,
 };

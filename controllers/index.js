@@ -11,6 +11,8 @@ const {
   resetAllValues,
 } = require("./machine.controller");
 
+const { getConfig, updateConfig } = require("./gcodeConfig.controller");
+
 module.exports = {
   checkDevice,
   movePen,
@@ -21,4 +23,6 @@ module.exports = {
   moveAxis,
   resetAllValues,
   uploadImage,
+  getConfig,
+  updateConfig,
 };

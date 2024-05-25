@@ -5,6 +5,7 @@ const {
   checkDeviceRouter,
   machineRouter,
   uploadImageRouter,
+  gcodeConfigRouter,
 } = require("./routes");
 
 const app = express();
@@ -17,6 +18,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/", checkDeviceRouter);
 app.use("/machine", machineRouter);
 app.use("/upload", uploadImageRouter);
+app.use("/gcode", gcodeConfigRouter);
 
 app.get("/", (req, res) => {
   res.send("Plotter Controller API v0.1\n");
