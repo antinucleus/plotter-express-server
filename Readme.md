@@ -7,7 +7,7 @@
 1. Clone the **convert-svg-to-gcode** package `git clone https://github.com/antinucleus/convert-svg-to-gcode`.
 2. Change directory to **convert-svg-to-gcode** with this command: `cd convert-svg-to-gcode`.
 3. This project was written in the typescript language. Therefore, it requires tsc (typescript compiler) for compilation. To install it globally run this command `npm install -g tsc`.
-4. If you use npm run `npm install`. (Also you can get information and follow instructions of this repo from `git clone https://github.com/antinucleus/convert-svg-to-gcode`).
+4. If you use npm run `npm install`. (Also you can get information and follow instructions of this repo from https://github.com/antinucleus/convert-svg-to-gcode).
 5. After that copy the SVG file you want to convert to **convert-svg-to-gcode/public** directory. If the file is not there, program will not work.
 6. There is `gcode.config.json` file at root directory of the project. You can change the values for your needs. For now, you have to supply `svgFileName`. Change this field to the same filename that you copied the svg file into **convert-svg-to-gcode/public**.
 7. Only once you should run the program for creating `dist` folder. Run `npm run start`.
