@@ -1,0 +1,12 @@
+{
+  "initialCommand": ["G90 G21 (Positioning = absolute, Unit = mm)"],
+  "lineNumbering": false,
+  "sampleCount": 30,
+  "svgFileName": "result.svg",
+  "unit": "mm",
+  "width": 130,
+  "height": 195,
+  "centerX": 10,
+  "centerY": 10,
+  "fill": false
+}
