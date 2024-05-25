@@ -1,9 +1,18 @@
+const { execSync } = require("child_process");
+
 const uploadImage = async (req, res, next) => {
   if (!req.file) {
     return res.status(400).send("No file uploaded.");
   }
 
-  res.status(200).send("Image uploaded and saved successfully.");
+  try {
+    execSync("./imagetosvg.sh ./uploads/image*");
+
+    res.status(200).send("Image uploaded and saved successfully.");
+  } catch (error) {
+    console.log({ error });
+    return res.status(400).send("Image did not converted to svg");
+  }
 };
 
 module.exports = { uploadImage };
