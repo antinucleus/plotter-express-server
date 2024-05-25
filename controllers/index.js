@@ -1,4 +1,6 @@
 const { checkDevice } = require("./checkDevice.controller");
+const { uploadImage } = require("./uploadImage.controller");
+
 const {
   movePen,
   getMachineStatus,
@@ -18,4 +20,5 @@ module.exports = {
   updateCoordinates,
   moveAxis,
   resetAllValues,
+  uploadImage,
 };
