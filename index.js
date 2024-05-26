@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const { join } = require("path");
 const { PORT } = require("./config");
 const {
   checkDeviceRouter,
@@ -8,7 +9,8 @@ const {
   mediaRouter,
 } = require("./routes");
 
-const path = `${process.cwd()}/public`;
+const path = join(__dirname, "/public");
+console.log({ "PUBLIC PATH": path });
 const app = express();
 
 app.use(bodyParser.json());

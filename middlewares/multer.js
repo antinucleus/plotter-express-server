@@ -1,9 +1,11 @@
 const multer = require("multer");
 const { emptyDirSync } = require("fs-extra");
+const { join } = require("path");
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    const dir = `${process.cwd()}/uploads`;
+    const dir = join(__dirname, "../uploads");
+    console.log({ "MULTER UPLOAD PATH": dir });
     emptyDirSync(dir);
     cb(null, dir);
   },
