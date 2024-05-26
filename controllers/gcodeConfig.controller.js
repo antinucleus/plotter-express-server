@@ -1,4 +1,5 @@
 const { readFileSync, writeFileSync } = require("node:fs");
+const { join } = require("path");
 const { getGcodeConfig, updateGcodeConfig } = require("../utils");
 
 const getConfig = async (req, res, next) => {
