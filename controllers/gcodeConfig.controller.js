@@ -10,13 +10,13 @@ const updateConfig = async (req, res, next) => {
     return res.status(400).send("No config supplied.");
   }
 
+  const filePath = `${process.cwd()}/gcode.config.json`;
+
   const newConfig = req.body;
 
   console.log({ newConfig });
 
   updateGcodeConfig(newConfig);
-
-  const filePath = `${process.cwd()}/gcode.config.json`;
 
   try {
     const data = readFileSync(filePath, "utf8");

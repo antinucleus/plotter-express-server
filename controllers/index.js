@@ -1,5 +1,5 @@
 const { checkDevice } = require("./checkDevice.controller");
-const { uploadImage } = require("./uploadImage.controller");
+const { uploadImage, getImage } = require("./media.controller");
 
 const {
   movePen,
@@ -23,6 +23,7 @@ module.exports = {
   moveAxis,
   resetAllValues,
   uploadImage,
+  getImage,
   getConfig,
   updateConfig,
 };

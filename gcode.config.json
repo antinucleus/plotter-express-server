@@ -1,12 +1,10 @@
-{
-  "initialCommand": [],
-  "lineNumbering": false,
-  "sampleCount": 30,
-  "svgFileName": "result.svg",
-  "unit": "mm",
-  "width": 130,
-  "height": 195,
-  "centerX": 10,
-  "centerY": 10,
-  "fill": false
-}
+{"initialCommand":[],
+"lineNumbering":false,
+"sampleCount":5,
+"svgFileName":"result.svg",
+"unit":"mm",
+"width":130,
+"height":195,
+"centerX":10,
+"centerY":10,
+"fill":false}

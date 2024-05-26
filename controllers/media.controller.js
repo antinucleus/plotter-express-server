@@ -18,4 +18,9 @@ const uploadImage = async (req, res, next) => {
   }
 };
 
-module.exports = { uploadImage };
+const getImage = async (req, res, next) => {
+  const path = `${process.cwd()}/public/result.svg`;
+  res.status(200).sendFile(path);
+};
+
+module.exports = { uploadImage, getImage };
