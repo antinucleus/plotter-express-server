@@ -1,4 +1,4 @@
 node_modules
-uploads
-result.svg
+# uploads
+# result.svg
 output.gcode
