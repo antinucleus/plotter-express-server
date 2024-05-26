@@ -11,8 +11,6 @@ const uploadImage = async (req, res, next) => {
     const scriptPath = join(__dirname, `../imagetosvg.sh`);
     const filePath = join(__dirname, "../uploads");
 
-    console.log({ scriptPath, filePath });
-
     execSync(`${scriptPath} ${filePath}/image*`);
 
     start();
@@ -20,6 +18,7 @@ const uploadImage = async (req, res, next) => {
     res.status(200).send("Image uploaded and saved successfully.");
   } catch (error) {
     console.log({ error });
+
     return res.status(400).send("Image did not converted to svg");
   }
 };
@@ -27,7 +26,6 @@ const uploadImage = async (req, res, next) => {
 const getImage = async (req, res, next) => {
   const path = join(__dirname, "../public/result.svg");
 
-  console.log({ "PUBLIC GET IMAGE PATH": path });
   res.status(200).sendFile(path);
 };
 

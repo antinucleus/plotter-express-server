@@ -11,13 +11,8 @@ const updateConfig = async (req, res, next) => {
     return res.status(400).send("No config supplied.");
   }
 
-  const filePath = join(__dirname, "../gcode.config.json");
-
-  console.log({ filePath });
-
   const newConfig = req.body;
-
-  console.log({ newConfig });
+  const filePath = join(__dirname, "../gcode.config.json");
 
   updateGcodeConfig(newConfig);
 

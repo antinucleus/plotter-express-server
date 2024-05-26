@@ -9,8 +9,6 @@ const {
 } = require("../utils");
 
 const getMachineStatus = async (req, res, next) => {
-  // console.log("Sending Status @sendStauts:", getStatus());
-
   res.send(getStatus());
 };
 
@@ -23,9 +21,6 @@ const updateMachineStatus = async (req, res, next) => {
 
 const movePen = async (req, res, next) => {
   const { penPosition } = req.body;
-
-  console.log("Pen Position @movePen:", penPosition);
-
   updateStatus({ penPosition, isMovingPen: "yes" });
 
   res.send(`Pen moved ${penPosition}`);
@@ -33,7 +28,6 @@ const movePen = async (req, res, next) => {
 
 const moveAxis = async (req, res, next) => {
   const motion = req.body;
-
   updateStatus(motion);
 
   res.send(`Moved axis: ${getStatus()}`);
@@ -41,16 +35,12 @@ const moveAxis = async (req, res, next) => {
 
 const updateCoordinates = async (req, res, next) => {
   const coordinates = req.body;
-  console.log("Machine Position @sendCoordinates:", coordinates);
-
   updateMachinePosition(coordinates);
 
   res.send("success");
 };
 
 const getCoordinates = async (req, res, next) => {
-  console.log("Machine Positon @getCoordinates:", getMachinePosition());
-
   res.send(getMachinePosition());
 };
 
