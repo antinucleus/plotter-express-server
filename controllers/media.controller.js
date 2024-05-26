@@ -9,11 +9,11 @@ const uploadImage = async (req, res, next) => {
 
   try {
     const scriptPath = join(__dirname, `../imagetosvg.sh`);
-    const filePath = join(__dirname, "../uploads/image*");
+    const filePath = join(__dirname, "../uploads");
 
     console.log({ scriptPath, filePath });
 
-    execSync(`${scriptPath} ${filePath}`);
+    execSync(`${scriptPath} ${filePath}/image*`);
 
     start();
 

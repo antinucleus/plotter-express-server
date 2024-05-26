@@ -9,7 +9,7 @@ const {
 } = require("../utils");
 
 const getMachineStatus = async (req, res, next) => {
-  console.log("Sending Status @sendStauts:", getStatus());
+  // console.log("Sending Status @sendStauts:", getStatus());
 
   res.send(getStatus());
 };
