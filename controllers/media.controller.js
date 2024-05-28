@@ -7,15 +7,22 @@ const uploadImage = async (req, res, next) => {
     return res.status(400).send("No file uploaded.");
   }
 
+  res.status(200).send("Image uploaded and saved successfully.");
+};
+
+const convertImagetoSvg = async (req, res, next) => {
+  const { detailLevel } = req.body;
+  console.log({ detailLevel });
+
   try {
     const scriptPath = join(__dirname, `../imagetosvg.sh`);
-    const filePath = join(__dirname, "../uploads");
+    const filePath = join(__dirname, "../uploads/image*");
 
-    execSync(`${scriptPath} ${filePath}/image*`);
+    console.log({ scriptPath, filePath, detailLevel });
 
-    start();
+    execSync(`${scriptPath} ${filePath} ${detailLevel}`);
 
-    res.status(200).send("Image uploaded and saved successfully.");
+    res.status(200).send("Image converted to svg successfully.");
   } catch (error) {
     console.log({ error });
 
@@ -23,10 +30,34 @@ const uploadImage = async (req, res, next) => {
   }
 };
 
-const getImage = async (req, res, next) => {
+const generateGcode = async (req, res, next) => {
+  try {
+    start();
+
+    res.status(200).send("Gcode generated successfully.");
+  } catch (error) {
+    console.log({ error });
+
+    return res.status(400).send("Gcode did not generated");
+  }
+};
+
+const getSvg = async (req, res, next) => {
   const path = join(__dirname, "../public/result.svg");
 
   res.status(200).sendFile(path);
 };
 
-module.exports = { uploadImage, getImage };
+const getGcode = async (req, res, next) => {
+  const path = join(__dirname, "../output.gcode");
+
+  res.status(200).sendFile(path);
+};
+
+module.exports = {
+  uploadImage,
+  getSvg,
+  convertImagetoSvg,
+  generateGcode,
+  getGcode,
+};
